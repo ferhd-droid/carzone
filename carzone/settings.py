@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,14 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'carzoneDB',
+        'USER': 'postgres',
+        #'PASSWORD': 'qWerty@123',
+        'PASSWORD': 'Cw95hubXEx',
+        'HOST': 'localhost',
     }
 }
 
@@ -122,6 +129,11 @@ STATIC_ROOT = BASE_DIR /'static'
 STATICFILES_DIRS = [
     'carzone/static',
 ]
+
+# Media files
+
+MEDIA_ROOT = BASE_DIR /'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

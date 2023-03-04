@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [ '127.0.0.1','192.168.1.203',]
 INSTALLED_APPS = [
     'cars.apps.CarsConfig',
     'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'django.contrib.humanize',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # Providers
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +146,15 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR /'media'
 MEDIA_URL = '/media/'
 
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SITE_ID = 1
